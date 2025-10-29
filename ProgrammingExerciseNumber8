@@ -1,0 +1,55 @@
+#include <iostream>
+#include <cmath>     // untuk sqrt() dan pow()
+using namespace std;
+
+// Fungsi 1: Hitung jarak antara dua titik
+double distance(double x1, double y1, double x2, double y2) {
+    return sqrt(pow(x2 - x1, 2) + pow(y2 - y1, 2));
+}
+
+// Fungsi 2: Hitung radius (panggil fungsi distance)
+double radius(double x1, double y1, double x2, double y2) {
+    return distance(x1, y1, x2, y2);
+}
+
+// Fungsi 3: Hitung keliling lingkaran
+double circumference(double r) {
+    const double PI = 3.1416;
+    return 2 * PI * r;
+}
+
+// Fungsi 4: Hitung luas lingkaran
+double area(double r) {
+    const double PI = 3.1416;
+    return PI * r * r;
+}
+
+// Fungsi utama (main)
+int main() {
+    double xCenter, yCenter; // titik pusat
+    double xPoint, yPoint;   // titik di lingkaran
+
+    // Minta input dari user
+    cout << "Masukkan koordinat pusat lingkaran (x y): ";
+    cin >> xCenter >> yCenter;
+
+    cout << "Masukkan koordinat titik pada lingkaran (x y): ";
+    cin >> xPoint >> yPoint;
+
+    // Hitung radius
+    double r = radius(xCenter, yCenter, xPoint, yPoint);
+
+    // Hitung nilai lain
+    double d = 2 * r;                     // diameter
+    double c = circumference(r);          // keliling
+    double a = area(r);                   // luas
+
+    // Tampilkan hasil
+    cout << "Jarak: " << r << endl;
+    cout << "Radius: " << r << endl;
+    cout << "Diameter: " << d << endl;
+    cout << "Keliling: " << c << endl;
+    cout << "Luas: " << a << endl;
+
+    return 0;
+}
